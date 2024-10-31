@@ -1,0 +1,120 @@
+/* Contenedor del PDF */
+
+.contenedor-pagina {
+    max-width: 743px;
+    margin: 100px;
+    /* border: black 1px solid; */
+}
+
+
+/* Informacion de la factura (Encabezado) */
+
+.informacion-factura {
+    display: flex;
+    flex-direction: row;
+}
+
+.tabla-informacion {
+    border: black 1px solid;
+    width: 400px;
+    margin: 0px 0px 0px 50px;
+}
+
+.fila-titulo {
+    background-color: rgba(63, 116, 59, 0.678);
+}
+
+.fila-tabla {
+    border: black 1px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.info-campo {
+    margin: 0px;
+    font-family: 'Agency FB';
+}
+
+.fila-titulo>.info-campo,
+.fila-titulo>div>.info-campo {
+    font-size: 18px;
+}
+
+.fila-info>.info-campo {
+    font-size: 15px;
+}
+
+.codigo>.info-campo {
+    font-size: 20px;
+}
+
+.advertencia>.info-campo {
+    font-size: 10px;
+    text-align: center;
+}
+
+.fila-info {
+    background-color: rgba(185, 185, 185, 0.664);
+}
+
+.advertencia {
+    background-color: rgba(128, 128, 128, 0.733);
+}
+
+
+/* Informacion de ubicacion y contacto */
+
+.informacion-contacto>p {
+    text-align: center;
+    margin: 5px 0px 0px 0px;
+}
+
+
+/* Informacion del cliente */
+
+.dato-campo {
+    margin: 0px;
+    font-family: 'Calibri Light';
+}
+
+.informacion-espacio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    border: black 1px solid
+}
+
+
+/* Informcaion de los productos */
+
+.informacion-compra {
+    margin-top: 20px;
+}
+
+thead {
+    background-color: rgba(63, 116, 59, 0.678);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: black 1px solid;
+}
+
+th {
+    border: black 1px solid;
+}
+
+td {
+    text-align: center;
+    margin: 5px 0px 5px 0px;
+}
+
+.total-suma {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 30px 0px 0px;
+}

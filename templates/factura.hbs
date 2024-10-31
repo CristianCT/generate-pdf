@@ -1,0 +1,251 @@
+<style type="text/css">
+    /* Contenedor del PDF */
+
+    .contenedor-pagina {
+        max-width: 743px;
+        margin: 100px;
+        /* border: black 1px solid; */
+    }
+
+
+    /* Informacion de la factura (Encabezado) */
+
+    .informacion-factura {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tabla-informacion {
+        border: black 1px solid;
+        width: 400px;
+        margin: 0px 0px 0px 50px;
+    }
+
+    .fila-titulo {
+        background-color: rgba(63, 116, 59, 0.678);
+    }
+
+    .fila-tabla {
+        border: black 1px solid;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .info-campo {
+        margin: 0px;
+        font-family: 'Agency FB';
+    }
+
+    .fila-titulo>.info-campo,
+    .fila-titulo>div>.info-campo {
+        font-size: 18px;
+    }
+
+    .fila-info>.info-campo {
+        font-size: 15px;
+    }
+
+    .codigo>.info-campo {
+        font-size: 20px;
+    }
+
+    .advertencia>.info-campo {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .fila-info {
+        background-color: rgba(185, 185, 185, 0.664);
+    }
+
+    .advertencia {
+        background-color: rgba(128, 128, 128, 0.733);
+    }
+
+
+    /* Informacion de ubicacion y contacto */
+
+    .informacion-contacto>p {
+        text-align: center;
+        margin: 5px 0px 0px 0px;
+    }
+
+
+    /* Informacion del cliente */
+
+    .dato-campo {
+        margin: 0px;
+        font-family: 'Calibri Light';
+    }
+
+    .informacion-espacio {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 10px 0px 10px;
+        border: black 1px solid
+    }
+
+
+    /* Informcaion de los productos */
+
+    .informacion-compra {
+        margin-top: 20px;
+    }
+
+    thead {
+        background-color: rgba(63, 116, 59, 0.678);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: black 1px solid;
+    }
+
+    th {
+        border: black 1px solid;
+    }
+
+    td {
+        text-align: center;
+        margin: 5px 0px 5px 0px;
+    }
+
+    .total-suma {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 5px 30px 0px 0px;
+    }
+</style>
+<html lang="en">
+<body>
+    <div class="contenedor-pagina">
+        <div class="informacion-factura">
+            <img src="D:\Cristian\-_-\-_-\Act_Indep\PruebaNodeJSPDF\logo.png" alt="Logo Empresarial">
+            <!-- Informacion de la factura -->
+            <div class="tabla-informacion ">
+                <div class="fila-tabla fila-titulo ">
+                    <h1 class="info-campo ">FACTURA DE VENTA ELECTRONICA</h1>
+                </div>
+                <div class="fila-tabla fila-info codigo ">
+                    <h2 class="info-campo ">{{ codigo_factura }}</h2>
+                </div>
+                <div class="fila-tabla fila-titulo fila-doble ">
+                    <div>
+                        <h2 class="info-campo ">FECHA DE EXPEDICION</h2>
+                    </div>
+                    <div>
+                        <h2 class="info-campo ">FECHA DE PAGO</h2>
+                    </div>
+                </div>
+                <div class="fila-tabla fila-info fila-doble ">
+                    <div class="fila-info ">
+                        <h2 class="info-campo ">{{ fecha_expedicion }}</h2>
+                    </div>
+                    <div class="fila-info ">
+                        <h2 class="info-campo ">{{ fecha_pago }}</h2>
+                    </div>
+                </div>
+                <div class="fila-tabla fila-titulo ">
+                    <h2 class="info-campo ">FORMA DE PAGO</h2>
+                </div>
+                <div class="fila-tabla fila-info ">
+                    <h2 class="info-campo ">TRANSFERENCIA INTERBANCARIA</h2>
+                </div>
+                <div class="fila-tabla fila-info advertencia ">
+                    <p class="info-campo ">EL EXESO DE ALCOHOL ES PERJUDICIAL PARA LA SALUD, PROHIBASE EL EXPENDIO DE BEBIDAS EMBRIAGANTES A MENORES DE EDAD</p>
+                </div>
+            </div>
+        </div>
+        <div class="informacion-contacto ">
+            <p><small>Avenida Pedro de Heredia No. 50ª–57, Primer (1er) Piso del Edificio Serinco / Cartagena De Indias Cra. 42 N° 3 Sur 81 Torre 1 Oficina 605 / Medellín (57-4) 604 20 36</small></p>
+        </div>
+        <div class="informacion-cliente ">
+            <div class="fila-tabla fila-titulo ">
+                <h1 class="info-campo ">INFORMACION DEL CLIENTE</h1>
+            </div>
+            <!-- Informacion del cliente -->
+            <div class="informacion-espacio ">
+                <div class="fila-datos ">
+                    <div>
+                        <h3 class="dato-campo ">Nombre: {{ nombre_cliente }}</h3>
+                    </div>
+                    <div>
+                        <h3 class="dato-campo ">Email: {{ email_cliente }}</h3>
+                    </div>
+                </div>
+                <div class="fila-datos ">
+                    <div>
+                        <h3 class="dato-campo ">Direccion: {{ direccion }}</h3>
+                    </div>
+                    <div>
+                        <h3 class="dato-campo ">Telefono: {{ telefono }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="informacion-compra ">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="info-campo " style="width: 10%; ">
+                            Codigo
+                        </th>
+                        <th class="info-campo " style="width: 25%; ">
+                            Nombre
+                        </th>
+                        <th class="info-campo " style="width: 25%; ">
+                            Descripcion
+                        </th>
+                        <th class="info-campo " style="width: 10%; ">
+                            Cantidad
+                        </th>
+                        <th class="info-campo " style="width: 15%; ">
+                            Valor Unitario
+                        </th>
+                        <th class="info-campo " style="width: 15%; ">
+                            Subtotal
+                        </th>
+                    </tr>
+                </thead>
+                <!-- Informacion de los productos -->
+
+                {{#each articulos as |articulo|}}
+                    <tr>
+                        <td>
+                            {{ articulo.codigo_articulo }}
+                        </td>
+                        <td>
+                            {{ articulo.nombre }}
+                        </td>
+                        <td>
+                            {{ articulo.descripcion }}
+                        </td>
+                        <td>
+                            {{ articulo.cantidad }}
+                        </td>
+                        <td>
+                            ${{ articulo.valor_final }}
+                        </td>
+                        <td>
+                            ${{ articulo.subtotal }}
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+            <div class="total-suma ">
+                <div>
+                    <h2 style="font-size: 22px; margin: 0px; ">TOTAL</h2>
+                </div>
+                <div>
+                    <h2 style="font-size: 25px; margin: 0px; ">${{ total_pedido }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
